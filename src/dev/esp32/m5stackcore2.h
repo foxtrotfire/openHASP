@@ -12,6 +12,7 @@ namespace dev {
 
 class M5StackCore2 : public Esp32Device {
   public:
+    enum core2_version { core2_unknown = 0, core2_v1, core2_v1_1 };
     void init() override;
     void get_sensors(JsonDocument& doc);
 
@@ -22,6 +23,7 @@ class M5StackCore2 : public Esp32Device {
     void update_backlight();
 
   private:
+    core2_version _core2_version;
     uint8_t _backlight_level;
     uint8_t _backlight_power;
 };
